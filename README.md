@@ -38,3 +38,8 @@ when working on minutes item generation model prototyping.
 
 Only Seattle City Council meetings are included in this example dataset.
 If we have a model showing promise we will get a larger dataset.
+
+## Work
+
+Please push your work as often as possible.
+Don't worry about being "done", focus on incremental progress!
