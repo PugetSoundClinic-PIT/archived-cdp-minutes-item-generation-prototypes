@@ -10,7 +10,8 @@ END_TOKENS = ['.', '!', '?', '...', "'", "`", '"', dm_single_close_quote, dm_dou
 # SENTENCE_START = '<s>'
 # SENTENCE_END = '</s>'
 
-bbc_tokenized_stories_dir = "./XSum-Dataset/xsum-preprocessed"
+# change to our input data directory, their code using Stanford CoreNLP toolkit to create XML files.
+tokenized_stories_dir = "./XSum-Dataset/xsum-preprocessed"
 
 finished_files_dir = "./data-convs2s"
 
@@ -49,23 +50,23 @@ def get_data_from_file(story_file):
 
 def write_to_bin(data_type, out_file_rb, out_file_fs):
   
-  """Reads all the bbids and write them to out file."""
-  print "Making text file for bibids listed as %s..." % data_type
+  """Reads all the ids and write them to out file."""
+  print "Making text file for ids listed as %s..." % data_type
   
-  bbcids = train_dev_test_dict[data_type]
-  num_stories = len(bbcids)
+  ids = train_dev_test_dict[data_type]
+  num_stories = len(ids)
 
   rb_foutput = open(out_file_rb, "w")
   fs_foutput = open(out_file_fs, "w")
       
-  for idx,s in enumerate(bbcids):
+  for idx,s in enumerate(ids):
     
     if idx % 1000 == 0:
       print "Writing story %i of %i; %.2f percent done" % (idx, num_stories, float(idx)*100.0/float(num_stories))
 
     # Files
-    restbodyfile = bbc_tokenized_stories_dir + "/document/" + s + ".document"
-    firstsentencefile = bbc_tokenized_stories_dir + "/summary/" + s + ".summary"
+    restbodyfile = tokenized_stories_dir + "/document/" + s + ".document"
+    firstsentencefile = tokenized_stories_dir + "/summary/" + s + ".summary"
     
             
     # Get the strings to write to .bin file

@@ -7,7 +7,7 @@ dm_double_close_quote = u'\u201d'
 END_TOKENS = ['.', '!', '?', '...', "'", "`", '"', dm_single_close_quote, dm_double_close_quote, ")"] # acceptable ways to end a sentence
 
 # change to our input data directory, their code using Stanford CoreNLP toolkit to create XML files.
-bbc_tokenized_stories_dir = "./XSum-Dataset/xsum-preprocessed"
+tokenized_stories_dir = "./XSum-Dataset/xsum-preprocessed"
 
 finished_files_dir = "./data-topic-convs2s"
 
@@ -60,27 +60,27 @@ def get_doctopic_data_from_file(doctopicfile, topic_list):
 
 def write_to_bin(data_type, out_file_rb, out_file_fs, out_file_doctopics, out_file_document_lemma, word_topic_dict_final, topic_list):
   
-  """Reads all the bbids and write them to out file."""
-  print "Making text file for bibids listed as %s..." % data_type
+  """Reads all the ids and write them to out file."""
+  print "Making text file for ids listed as %s..." % data_type
   
-  bbcids = train_dev_test_dict[data_type]
-  num_stories = len(bbcids)
+  ids = train_dev_test_dict[data_type]
+  num_stories = len(ids)
 
   rb_foutput = open(out_file_rb, "w")
   fs_foutput = open(out_file_fs, "w")
   doctopics_foutput = open(out_file_doctopics, "w")
   document_lemma_foutput = open(out_file_document_lemma, "w")
   
-  for idx,s in enumerate(bbcids):
+  for idx,s in enumerate(ids):
     
     if idx % 1000 == 0:
       print "Writing story %i of %i; %.2f percent done" % (idx, num_stories, float(idx)*100.0/float(num_stories))
 
     # Files
-    documentfile = bbc_tokenized_stories_dir + "/document/" + s + ".document"
-    summaryfile = bbc_tokenized_stories_dir + "/summary/" + s + ".summary"
-    documentfile_lemma = bbc_tokenized_stories_dir + "/document-lemma/" + s + ".document-lemma"
-    doctopicfile = bbc_tokenized_stories_dir + "/document-lemma-topic-512-iter-1000/" + s + ".doc-topics"
+    documentfile = tokenized_stories_dir + "/document/" + s + ".document"
+    summaryfile = tokenized_stories_dir + "/summary/" + s + ".summary"
+    documentfile_lemma = tokenized_stories_dir + "/document-lemma/" + s + ".document-lemma"
+    doctopicfile = tokenized_stories_dir + "/document-lemma-topic-512-iter-1000/" + s + ".doc-topics"
             
     # Get the strings to write to .bin file
     abstract = get_data_from_file(summaryfile)
