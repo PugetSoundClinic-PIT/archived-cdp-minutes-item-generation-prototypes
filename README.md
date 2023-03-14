@@ -44,4 +44,9 @@ If we have a model showing promise we will get a larger dataset.
 Please push your work as often as possible.
 Don't worry about being "done", focus on incremental progress!
 
-trial
+# Minutes Item Alignment
+
+## cdp-minutes-item-seg Dataset
+This dataset contains 27 meetings' manually corrected annotations.
+
+## 
