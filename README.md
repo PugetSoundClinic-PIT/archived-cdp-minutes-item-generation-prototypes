@@ -46,7 +46,10 @@ Don't worry about being "done", focus on incremental progress!
 
 # Minutes Item Alignment
 
-## cdp-minutes-item-seg Dataset
+## cdp-minutes-item-seg.json Dataset
 This dataset contains 27 meetings' manually corrected annotations.
 
-## 
+## semantic-dtw-sentences-and-minutes and evaluation.ipynb
+This file is the implementation of Eva's algorithm and evaluation method using segeval.
+
+
